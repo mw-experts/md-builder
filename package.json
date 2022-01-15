@@ -6,7 +6,8 @@
     "lint:md-builder": "nx lint md-builder",
     "test:md-builder": "nx test md-builder",
     "------------------ common ------------------": "",
-    "format": "nx format:write --all"
+    "format": "nx format:write --all",
+    "clear-cache": "nx clear-cache"
   },
   "dependencies": {
     "tslib": "^2.0.0"
