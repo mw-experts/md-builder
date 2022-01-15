@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "------------------ lib: md-builder ------------------": "",
-    "build:md-builder": "nx build md-builder",
-    "lint:md-builder": "nx lint md-builder",
-    "test:md-builder": "nx test md-builder",
+    "build:md-builder": "nx run md-builder:build",
+    "lint:md-builder": "nx run md-builder:lint",
+    "test:md-builder": "nx run md-builder:test",
     "------------------ common ------------------": "",
     "format": "nx format:write --all",
     "clear-cache": "nx clear-cache"
