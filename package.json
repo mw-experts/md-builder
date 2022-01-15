@@ -4,9 +4,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {},
-  "dependencies": {},
   "devDependencies": {
     "@nrwl/cli": "13.4.5",
+    "@nrwl/node": "^13.4.5",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/tao": "13.4.5",
     "@nrwl/workspace": "13.4.5",
