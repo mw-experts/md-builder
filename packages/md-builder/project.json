@@ -1,0 +1,34 @@
+{
+  "root": "packages/md-builder",
+  "sourceRoot": "packages/md-builder/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/md-builder/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/md-builder"],
+      "options": {
+        "jestConfig": "packages/md-builder/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/md-builder",
+        "tsConfig": "packages/md-builder/tsconfig.lib.json",
+        "packageJson": "packages/md-builder/package.json",
+        "main": "packages/md-builder/src/index.ts",
+        "assets": ["packages/md-builder/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
