@@ -1,7 +1,8 @@
 import { mdBuilder } from './md-builder';
 
-describe('mdBuilder', () => {
-  it('should work', () => {
-    expect(mdBuilder()).toEqual('md-builder');
+describe('mdBuilder', (): void => {
+  it('should work', (): void => {
+    expect.hasAssertions();
+    expect(mdBuilder()).toBe('md-builder');
   });
 });

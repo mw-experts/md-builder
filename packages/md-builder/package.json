@@ -1,4 +1,30 @@
 {
   "name": "@mw-experts/md-builder",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "description": "A CLI tool to build books out of Markdown(.md) files",
+  "keywords": [
+    "cli",
+    "tool",
+    "markdown",
+    "book",
+    "builder"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Andrey Korovin",
+    "email": "misticwonder@gmail.com"
+  },
+  "homepage": "https://github.com/mw-experts/md-builder/tree/main/packages/md-builder#readme",
+  "bugs": {
+    "url": "https://github.com/mw-experts/md-builder/issues",
+    "email": "misticwonder@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mw-experts/md-builder.git",
+    "directory": "packages/md-builder"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

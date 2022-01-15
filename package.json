@@ -1,9 +1,13 @@
 {
-  "name": "md-builder",
-  "version": "0.0.0",
-  "license": "MIT",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "------------------ lib: md-builder ------------------": "",
+    "build:md-builder": "nx build md-builder",
+    "lint:md-builder": "nx lint md-builder",
+    "test:md-builder": "nx test md-builder",
+    "------------------ common ------------------": "",
+    "format": "nx format:write --all"
+  },
   "dependencies": {
     "tslib": "^2.0.0"
   },
@@ -22,6 +26,9 @@
     "@typescript-eslint/parser": "~5.3.0",
     "eslint": "8.2.0",
     "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-unicorn": "^40.0.0",
     "jest": "27.2.3",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.5",

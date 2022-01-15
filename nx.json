@@ -2,7 +2,7 @@
   "extends": "@nrwl/workspace/presets/core.json",
   "npmScope": "md-builder",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "origin/main"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
@@ -11,12 +11,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "NDI5NTVjOTEtNzI0ZS00NDY3LTg1ZDMtYmUxYWY0YTU5OWU4fHJlYWQtd3JpdGU="
       }
     }
