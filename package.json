@@ -1,9 +1,8 @@
 {
-  "name": "md-builder",
-  "version": "0.0.0",
-  "license": "MIT",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "nx build md-builder"
+  },
   "dependencies": {
     "tslib": "^2.0.0"
   },
