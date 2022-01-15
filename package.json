@@ -2,8 +2,8 @@
   "name": "md-builder",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {
     "@nrwl/cli": "13.4.5",
