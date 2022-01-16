@@ -9,10 +9,8 @@
     "format": "nx format:write --all",
     "clear-cache": "nx clear-cache"
   },
-  "dependencies": {
-    "tslib": "^2.0.0"
-  },
   "devDependencies": {
+    "@jscutlery/semver": "^2.17.5",
     "@nrwl/cli": "13.4.5",
     "@nrwl/eslint-plugin-nx": "13.4.5",
     "@nrwl/jest": "13.4.5",
@@ -33,6 +31,7 @@
     "jest": "27.2.3",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.5",
+    "tslib": "^2.0.0",
     "typescript": "~4.4.3"
   }
 }
