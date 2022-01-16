@@ -1,5 +1,9 @@
 # md-builder
 
+## How to use repository
+
+1. Rename `nx-cloud.env-example` to `nx-cloud.env` and set all values
+
 ## Repository commands
 
 ```
