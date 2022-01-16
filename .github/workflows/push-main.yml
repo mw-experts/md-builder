@@ -15,6 +15,7 @@ jobs:
         uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: main
+          error-on-no-successful-workflow: true
       - uses: actions/setup-node@v1
         name: Setup node
         with:

@@ -5,7 +5,8 @@
     "defaultBase": "origin/main"
   },
   "implicitDependencies": {
-    ".github": "*"
+    ".github/workflows/pr.yml": "*",
+    ".github/workflows/push-main.yml": "*"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
@@ -14,7 +15,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": ["build", "lint", "test"],
         "accessToken": "NDI5NTVjOTEtNzI0ZS00NDY3LTg1ZDMtYmUxYWY0YTU5OWU4fHJlYWQtd3JpdGU="
       }
     }
