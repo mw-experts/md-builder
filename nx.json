@@ -5,7 +5,8 @@
     "defaultBase": "origin/main"
   },
   "implicitDependencies": {
-    ".github": "*"
+    ".github/workflows/pr.yml": "*",
+    ".github/workflows/push-main.yml": "*"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
