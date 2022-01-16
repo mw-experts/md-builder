@@ -6,6 +6,7 @@ on:
 env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   NX_CLOUD_ENCRYPTION_KEY: ${{ secrets.NX_CLOUD_ENCRYPTION_KEY }}
+  GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 jobs:
   job:
     runs-on: ubuntu-latest
@@ -42,4 +43,3 @@ jobs:
         run: npx nx affected --target=version --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
