@@ -10,3 +10,8 @@
 ```
 nx g @nrwl/node:library md-builder --setParserOptionsProject=true --strict=true --testEnvironment=node --standaloneConfig=true --publishable --importPath=@mw-experts/md-builder
 ```
+
+## TODO
+
+- Protect `main` branch from push
+- Setup hooks and lint to check commit message format
