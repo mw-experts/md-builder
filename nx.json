@@ -5,7 +5,6 @@
     "defaultBase": "origin/main"
   },
   "implicitDependencies": {
-    ".eslintrc-strict.json": "*",
     ".github/workflows/pr.yml": "*",
     ".github/workflows/push-main.yml": "*"
   },
