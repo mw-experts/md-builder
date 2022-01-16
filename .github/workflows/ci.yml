@@ -5,12 +5,70 @@ on:
       - main
   pull_request:
 
+env:
+  NX_CLOUD_DISTRIBUTED_EXECUTION: true
+
 jobs:
-  check-bats-version:
+  push:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: main
+          error-on-no-successful-workflow: true
+      - uses: actions/setup-node@v1
+        name: Setup node
         with:
           node-version: '16'
-      - run: printenv
+      - run: npm ci
+      - run: npx nx-cloud start-ci-run
+      - run: npx nx format:check --base=env.NX_BASE --head=env.NX_HEAD
+      - run: npx nx affected --target=lint --parallel --max-parallel=3
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=3
+      - run: npx nx-cloud stop-all-agents
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: main
+          error-on-no-successful-workflow: true
+      - uses: actions/setup-node@v1
+        name: Setup node
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: npx nx-cloud start-ci-run
+      - run: npx nx format:check --base=env.NX_BASE --head=env.NX_HEAD
+      - run: npx nx affected --target=lint --parallel --max-parallel=3
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=3
+      - run: npx nx-cloud stop-all-agents
+  agents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        agent: [ 1, 2, 3 ]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - run: npm ci
+      - name: Start Nx Agent ${{ matrix.agent }}
+        run: npx nx-cloud start-agent
