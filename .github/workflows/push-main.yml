@@ -7,8 +7,8 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
@@ -16,12 +16,22 @@ jobs:
         with:
           main-branch-name: main
           error-on-no-successful-workflow: true
-      - uses: actions/setup-node@v1
-        name: Setup node
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          node-version: '16'
-      - run: npm ci
-      - run: npx nx format:check --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
-      - run: npx nx affected --target=lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
-      - run: npx nx affected --target=build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
-      - run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install packages
+        run: npm ci
+      - name: Check formatting
+        run: npx nx format:check --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - name: Lint affected
+        run: npx nx affected --target=lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - name: Build affected
+        run: npx nx affected --target=build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - name: Test affected
+        run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - name: Publish affected
+        run: npx nx affected --target=publish --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
