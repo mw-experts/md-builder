@@ -4,6 +4,9 @@
   "affected": {
     "defaultBase": "origin/main"
   },
+  "implicitDependencies": {
+    ".github": "*"
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   },
