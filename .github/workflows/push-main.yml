@@ -15,13 +15,12 @@ jobs:
         uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: main
-          error-on-no-successful-workflow: true
       - uses: actions/setup-node@v1
         name: Setup node
         with:
           node-version: '16'
       - run: npm ci
       - run: npx nx format:check --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
-      - run: npx nx affected --target=lint
-      - run: npx nx affected --target=build
-      - run: npx nx affected --target=test
+      - run: npx nx affected --target=lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - run: npx nx affected --target=build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
