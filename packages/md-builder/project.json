@@ -29,6 +29,22 @@
         "passWithNoTests": true
       }
     },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "push": true,
+        "noVerify": true,
+        "postTargets": ["md-builder:publish", "md-builder:github"],
+        "commitMessageFormat": "chore(${projectName}): release version ${version} [skip ci]"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    },
     "publish": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {

@@ -3,6 +3,7 @@
 ## How to use repository
 
 1. Rename `nx-cloud.env-example` to `nx-cloud.env` and set all values
+2. [Commit Message Format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
 
 ## Repository commands
 
