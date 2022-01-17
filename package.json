@@ -3,7 +3,7 @@
   "scripts": {
     "------------------ lib: md-builder ------------------": "",
     "build:md-builder": "nx run md-builder:build",
-    "lint:md-builder": "nx run md-builder:lint",
+    "lint:md-builder": "nx run md-builder:lint --fix",
     "test:md-builder": "nx run md-builder:test",
     "------------------ common ------------------": "",
     "format": "nx format:write --all",
