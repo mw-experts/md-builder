@@ -19,15 +19,15 @@ const child: ChildProcessWithoutNullStreams = spawn(path.resolve(__dirname, '..'
 
 child.stdout.on('data', (data: unknown): void => {
   // eslint-disable-next-line no-console
-  console.log(`stdout:\n${data}`);
+  console.log('\u001B[34m%s\u001B[0m', data);
 });
 
 child.stderr.on('data', (data: unknown): void => {
-  console.error(`stderr:\n${data}`);
+  console.error('\u001B[31m%s\u001B[0m', data);
 });
 
 child.on('error', (error: Error): void => {
-  console.error(`error:\n${error.message}`);
+  console.error('\u001B[31m%s\u001B[0m', error.message);
 });
 
 child.on('close', (code: number): void => {
