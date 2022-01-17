@@ -34,11 +34,11 @@ child.on('error', (error: Error): void => {
 function replaceName(data: Buffer | string): string {
   return data
     .toString('utf8')
-    .replaceAll('mdbook v0.4.15\n', '')
-    .replaceAll('Mathieu David <mathieudavid@mathieudavid.org>\n', '')
-    .replaceAll('The source code for mdBook is available at: https://github.com/rust-lang/mdBook\n', '')
     .replaceAll('mdbook-mac', 'md-builder')
     .replaceAll('mdbook-linux', 'md-builder')
     .replaceAll('mdbook-win.exe', 'md-builder')
-    .replaceAll('mdbook', 'md-builder');
+    .replaceAll('mdbook', 'md-builder')
+    .replaceAll('md-builder-build v0.4.15\n', '')
+    .replaceAll('Mathieu David <mathieudavid@mathieudavid.org>\n', '')
+    .replaceAll('The source code for mdBook is available at: https://github.com/rust-lang/mdBook\n', '');
 }
