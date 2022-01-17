@@ -13,7 +13,5 @@ nx g @nrwl/node:library md-builder --setParserOptionsProject=true --strict=true 
 
 ## TODO
 
-- Protect `main` branch from push
 - Setup hooks and lint to check commit message format
-- Try to remove `GITHUB_TOKEN` env
-- Remove `This file was generated using` from CHANGELOG
+- Setup CHANGELOG generator and version updater
