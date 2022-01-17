@@ -11,6 +11,8 @@
     }
   ],
   "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["ESNext.String"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,

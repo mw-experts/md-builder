@@ -17,20 +17,26 @@ if (binName === undefined) {
 
 const child: ChildProcessWithoutNullStreams = spawn(path.resolve(__dirname, '..', binName), process.argv.slice(2));
 
-child.stdout.on('data', (data: unknown): void => {
+child.stdout.on('data', (data: string): void => {
   // eslint-disable-next-line no-console
-  console.log('\u001B[34m%s\u001B[0m', data);
+  console.log('\u001B[34m%s\u001B[0m', replaceName(data));
 });
 
-child.stderr.on('data', (data: unknown): void => {
-  console.error('\u001B[31m%s\u001B[0m', data);
+child.stderr.on('data', (data: string): void => {
+  console.error('\u001B[31m%s\u001B[0m', replaceName(data));
 });
 
 child.on('error', (error: Error): void => {
-  console.error('\u001B[31m%s\u001B[0m', error.message);
+  console.error('\u001B[31m%s\u001B[0m', replaceName(error.message));
 });
 
-child.on('close', (code: number): void => {
-  // eslint-disable-next-line no-console
-  console.log(`child process exited with code ${code}`);
-});
+function replaceName(data: string): string {
+  return data
+    .replaceAll('mdbook v0.4.15\n', '')
+    .replaceAll('Mathieu David <mathieudavid@mathieudavid.org>\n', '')
+    .replaceAll('The source code for mdBook is available at: https://github.com/rust-lang/mdBook\n', '')
+    .replaceAll('mdbook', 'md-builder')
+    .replaceAll('mdbook-mac', 'md-builder')
+    .replaceAll('mdbook-linux', 'md-builder')
+    .replaceAll('mdbook-win.exe', 'md-builder');
+}
