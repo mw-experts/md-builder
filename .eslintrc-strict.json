@@ -107,7 +107,6 @@
         "eqeqeq": ["error", "always"],
 
         "unicorn/prevent-abbreviations": "off",
-        "unicorn/prefer-module": "off",
 
         "import/no-unresolved": "off",
         "import/first": "error",
