@@ -34,12 +34,6 @@
       "options": {
         "commands": [
           {
-            "command": "npm version patch -m 'chore(md-builder): release version %s'"
-          },
-          {
-            "command": "git push origin HEAD --no-verify"
-          },
-          {
             "command": "npm publish dist/packages/md-builder"
           }
         ]
