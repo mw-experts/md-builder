@@ -38,7 +38,7 @@ function replaceName(data: Buffer | string): string {
     .replaceAll('mdbook-linux', 'md-builder')
     .replaceAll('mdbook-win.exe', 'md-builder')
     .replaceAll('mdbook', 'md-builder')
-    .replaceAll('md-builder-build v0.4.15\n', '')
+    .replaceAll('md-builder v0.4.15\n', '')
     .replaceAll('Mathieu David <mathieudavid@mathieudavid.org>\n', '')
     .replaceAll('The source code for mdBook is available at: https://github.com/rust-lang/mdBook\n', '');
 }
