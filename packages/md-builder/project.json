@@ -34,7 +34,7 @@
       "options": {
         "commands": [
           {
-            "command": "npm version patch -m 'chore(md-builder): release version %s [skip ci]'"
+            "command": "npm version patch -m 'chore(md-builder): release version %s'"
           },
           {
             "command": "git push origin HEAD --no-verify"
