@@ -8,7 +8,7 @@ const binaries: Record<string, string> = {
   darwin: 'mdbook-mac',
   linux: 'mdbook-linux',
   win32: 'mdbook-win.exe',
-}
+};
 
 const binName: string | undefined = binaries[os.platform()];
 if (binName === undefined) {
