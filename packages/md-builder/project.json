@@ -18,7 +18,7 @@
         "tsConfig": "packages/md-builder/tsconfig.lib.json",
         "packageJson": "packages/md-builder/package.json",
         "main": "packages/md-builder/src/index.ts",
-        "assets": ["packages/md-builder/*.md", "packages/md-builder/LICENSE"]
+        "assets": ["packages/md-builder/*.md", "packages/md-builder/LICENSE", "packages/md-builder/src/binaries/*"]
       }
     },
     "test": {

@@ -26,5 +26,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "bin": {
+    "md-builder": "./src/index.js"
   }
 }
