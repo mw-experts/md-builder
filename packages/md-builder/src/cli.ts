@@ -18,6 +18,10 @@ if (binName === undefined) {
 // eslint-disable-next-line unicorn/prefer-module
 const child: ChildProcessWithoutNullStreams = spawn(path.resolve(__dirname, '..', binName), process.argv.slice(2));
 
+process.stdin.on('data', (data: Buffer): void => {
+  child.stdin.write(data);
+});
+
 child.stdout.on('data', (data: Buffer): void => {
   // eslint-disable-next-line no-console
   console.log('\u001B[34m%s\u001B[0m', replaceName(data));
@@ -29,6 +33,10 @@ child.stderr.on('data', (data: Buffer): void => {
 
 child.on('error', (error: Error): void => {
   console.error('\u001B[31m%s\u001B[0m', replaceName(error.message));
+});
+
+child.on('close', (code: number): void => {
+  process.exit(code);
 });
 
 function replaceName(data: Buffer | string): string {
