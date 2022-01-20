@@ -9,6 +9,9 @@
     "format": "nx format:write --all",
     "clear-cache": "nx clear-cache"
   },
+  "dependencies": {
+    "toml": "^3.0.0"
+  },
   "devDependencies": {
     "@nrwl/cli": "13.4.5",
     "@nrwl/eslint-plugin-nx": "13.4.5",
