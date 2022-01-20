@@ -71,7 +71,7 @@ function addBaseInHtmlIfNotExist(buildDir: string, baseHref: string): void {
         fileStr = fileStr.replaceAll('<meta charset="UTF-8">', `<meta charset="UTF-8">\n<base href="${baseHref}">\n`);
       }
 
-      fileStr = fileStr.replaceAll(/(\.\.\/)+/g, `/`);
+      fileStr = fileStr.replaceAll(/(\.\.\/)+/g, ``);
 
       fs.writeFileSync(filePath, fileStr, 'utf8');
     }
